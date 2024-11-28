@@ -1,0 +1,462 @@
+//Task 1
+You are given the following “University” class: 
+
+public class University{
+    public String name;
+    public String country;
+}
+Now write a Java tester class named “UniversityTester”.
+
+Write the main method and create 2 objects of University class and print the location of the objects and print the instance variables of the objects. Are the location of the objects the same? 
+
+Now change the instance variables of the first object.
+ name =  “Imperial College London”
+ country = “England”
+
+Now change the instance variables of the second object.
+	name =  “Brac University”
+country = “Bangladesh”
+
+Now check if the instance variables of both objects have changed or not and whether the instance variables of both objects are of the same value or not.
+//(a)
+public class UniversityTester{
+  public static void main(String[]args){
+   University st1= new University();
+   University st2=new University();
+   st1.name="Yale University";
+   st1.country="United States";
+   st2.name="The University of Tokyo";
+   st2.country="Japan";
+   System.out.println("The location of st1: "+st1);
+   System.out.println("The location of st2: "+st2);
+   System.out.println("Student 1 Name: "+st1.name);
+   System.out.println("Student 1 country: "+st1.country);
+   System.out.println("Student 2 Name: "+st2.name);
+   System.out.println("Student 2 Country: "+st2.country);
+   if(st1==st2){
+     System.out.println("The Location is same ");
+   }
+   else{
+     System.out.println("The Location is different ");
+   }
+//Task 1(b)
+st1.name =" Imperial College London ";
+st1.country="England";
+st2.name ="Brac University";
+st2.country="Bangladesh";
+System.out.println("The location of st1: "+st1);
+   System.out.println("The location of st2: "+st2);
+   System.out.println("Student 1 Name: "+st1.name);
+   System.out.println("Student 1 country: "+st1.country);
+   System.out.println("Student 2 Name: "+st2.name);
+   System.out.println("Student 2 Country: "+st2.country);
+}
+}
+//The instance variables of both objects haven't changed and the instance variables of both objects don't have the same value.
+
+// Task 2
+Design the “Student” class so that the main method prints the following
+Tester Class:
+public class StudentTester1{
+   public static void main(String [] args){
+      Student s1 = new Student();
+      System.out.println("Name of the Student: "+s1.name);
+      System.out.println("ID of the Student: "+s1.id);
+      s1.name = "Bob";
+      s1.id = 123;
+      System.out.println("Name of the Student: "+s1.name);
+      System.out.println("ID of the Student: "+s1.id);
+   }
+}
+
+Output
+Name of the Student: Default
+ID of the Student: 0
+Name of the Student: Bob
+ID of the Student: 123
+
+ANSWER:
+public class Student {
+  public String name = "Default";
+  public int id= 0;
+}
+// Task 3
+Design the CSECourse class to generate the correct output from the driver code provided below:
+
+Driver Code
+public class CourseTester{
+  public static void main(String args []){
+    CSECourse c1 = new CSECourse();
+    System.out.println("Course Name: "+c1.courseName);
+    System.out.println("Course Code: "+c1.courseCode);
+    System.out.println("Credit: "+c1.credit);
+   }
+}
+Output:
+Course Name: Programming Language II
+Course Code: CSE111
+Credit: 3
+
+Answer:
+public class CSECourse {
+ public String courseName= "Programming Language II";
+public String courseCode= "CSE111";
+public int credit= 3;
+
+}
+// Task 4
+Design the “ImaginaryNumber”  class to generate the output given below:
+Tester Class 
+public class Tester6{
+  public static void main(String [] args){
+     ImaginaryNumber num1 = new ImaginaryNumber();
+     num1.printNumber();
+     System.out.println("1********");
+     num1.realPart=3;
+     num1.imaginaryPart=7;
+     num1.printNumber();
+     System.out.println("2********");
+     ImaginaryNumber num2 = new ImaginaryNumber();
+     num2.realPart=1;
+     num2.imaginaryPart=9;
+     num2.printNumber();
+    }
+}
+
+Output
+0 + 0i
+1********
+3 + 7i
+2********
+1 + 9i
+ 
+ANSWER:
+public class ImaginaryNumber {
+  
+    public int realPart = 0;
+    public int imaginaryPart = 0;
+    public void printNumber(){
+        System.out.println(realPart + " + " + imaginaryPart + "i");
+    }
+}
+// Task 5
+Design the Course class to generate the correct output from the driver code provided below:
+Driver Code
+public class Tester5{
+  public static void main(String[] args) {
+    Course c1 = new Course();
+    Course c2 = new Course();  
+    System.out.println("========== 1 ==========");
+    c1.updateDetails("Programming Language I","CSE110", 3);
+    c1.displayCourse(); 
+    System.out.println("========== 2 ==========");
+    c2.updateDetails("Data Structures","CSE220",3);
+    c2.displayCourse();  
+    System.out.println("========== 3 ==========");
+    c1.updateDetails("Programming Language II","CSE111",3);
+    c1.displayCourse();
+  }
+}
+
+Output
+========== 1 ==========
+Course Name: Programming Language I
+Course Code: CSE110
+Course Credit: 3
+========== 2 ==========
+Course Name: Data Structures
+Course Code: CSE220
+Course Credit: 3
+========== 3 ==========
+Course Name: Programming Language II
+Course Code: CSE111
+Course Credit: 3
+
+ANSWER:
+public class Course{
+  public String course_name;
+  public String course_code;
+  public int course_credit;
+  
+  public void updateDetails(String course_name , String course_code , int course_credit){
+    this.course_name=course_name;
+    this.course_code=course_code;
+    this.course_credit=course_credit;
+  }
+    public void displayCourse(){
+      System.out.println("Course Name : "+ course_name);
+      System.out.println("Course Code : "+ course_code);
+      System.out.println("Course Credit : "+ course_credit);
+    }
+  }
+
+// Task 6
+Implement the “Assignment” class with necessary properties, so that the given output is produced for the provided driver code.
+Driver Class
+public class AssignmentTester{
+  public static void main(String [] args){
+    Assignment as1 = new Assignment();
+    as1.printDetails();
+    System.out.println("1---------------");
+    as1.tasks = 11;
+    as1.difficulty = "Moderate";
+    as1.submission = true;
+    as1.printDetails();
+    System.out.println("2---------------");
+    System.out.println(as1.makeOptional());
+    System.out.println("3---------------");
+    as1.printDetails();
+    System.out.println("4---------------");
+    Assignment as2 = new Assignment();
+    as2.tasks = 12;
+    as2.difficulty = "Hard";
+    as2.submission = false;
+    as2.printDetails();
+    System.out.println("5---------------");
+    System.out.println(as2.makeOptional());
+  }
+}
+Output
+Number of tasks: 0
+Difficulty level: null
+Submission required: false
+1---------------
+Number of tasks: 11
+Difficulty level: Moderate
+Submission required: true
+2---------------
+Assignment will not require submission
+3---------------
+Number of tasks: 11
+Difficulty level: Moderate
+Submission required: false
+4---------------
+Number of tasks: 12
+Difficulty level: Hard
+Submission required: false
+5---------------
+Submission is already not required
+
+ANSWER:
+public class Assignment{
+  public int tasks=0;
+  public String difficulty="Moderate";
+  public boolean submission=false;
+  
+  public void printDetails(){
+    System.out.println("Number of Tasks: "+ tasks);
+    System.out.println("Difficulty Level: "+ difficulty);
+    System.out.println("Submssion Required: "+ submission);
+  }
+  public String makeOptional(){
+    if(!submission){
+      return"Submission is already not required";
+    }
+    else{
+      return"Assignment will not require submission";
+    }
+  }
+}
+
+// Task 7
+Design the CellPhone class so that the main method of tester class can produce the following output:
+Tester Class
+public class Tester9{
+  public static void main(String[]args){
+     CellPhone phone1 = new CellPhone();
+     phone1.printDetails();
+     phone1.model ="Nokia 1100";
+     System.out.println("1##################");
+     phone1.storeContact("Joy - 01834");
+     System.out.println("===================");
+     phone1.printDetails();
+     System.out.println("2##################");
+     phone1.storeContact("Toya - 01334");
+     phone1.storeContact("Aayan - 01135");
+     System.out.println("===================");
+     phone1.printDetails();
+     System.out.println("3##################");
+     phone1.storeContact("Sani - 01441");
+     System.out.println("===================");
+     phone1.printDetails();  
+  }
+}
+
+Output
+Phone Model unknown
+Contacts Stored 0
+1##################
+Contact Stored
+===================
+Phone Model Nokia 1100
+Contacts Stored 1
+Stored Contacts:
+Joy - 01834
+2##################
+Contact Stored
+Contact Stored
+===================
+Phone Model Nokia 1100
+Contacts Stored 3
+Stored Contacts:
+Joy - 01834
+Toya - 01334
+Aayan - 01135
+3##################
+Memory full. New contact can't be stored.
+===================
+Phone Model Nokia 1100
+Contacts Stored 3
+Stored Contacts:
+Joy - 01834
+Toya - 01334
+Aayan - 01135
+
+ANSWER:
+public class CellPhone{
+  public String model="unknown";
+  String[] contacts= new String[3];
+  int contactCount=0;
+   
+   public void printDetails(){
+     System.out.println("Phone Model "+model);
+     System.out.println("Contact Stored "+contactCount);
+     if(contactCount>0){
+       System.out.println("Stored contact: ");
+       for(int i=0;i<contactCount;i++){
+         System.out.println(contacts[i]);
+       }
+     }
+   }
+        
+        public void storeContact(String contact){
+          if(contactCount<contacts.length){
+            contacts[contactCount]=contact;
+            System.out.println("Contact Stored");
+            contactCount++;
+          }
+          else{
+            System.out.println("Memory Full new contacts cant be Stored");
+          }
+        }
+     }
+
+// Task 8
+Create an Employee class to provide the expected output. 
+An employee will have a name, salary and designation.
+The name will be assigned inside the newEmployee() method
+Whenever a New Employee joins his/her salary will be Tk. 30,000 and the designation will be junior.
+Employees with salaries greater than Tk. 50,000 and Tk. 30,000 need to pay 30% and 10% of salary as tax respectively.
+Employees can be promoted to senior, lead and manager positions. Based on their promotion they will get an increment of Tk. 25,000, Tk. 50,000 and Tk. 75,000 respectively.
+public class Employee {
+    String name;
+    double salary;
+    String Position;
+Driver Code
+public class Tester3{
+  public static void main(String[] args){
+
+    Employee emp1 = new Employee();
+    Employee emp2 = new Employee();
+    Employee emp3 = new Employee();
+      
+    emp1.newEmployee("Harry Potter");
+    emp2.newEmployee("Hermione Granger");
+    emp3.newEmployee("Ron Weasley");
+    System.out.println("1 ==========");
+    emp1.displayInfo();
+    System.out.println("2 ==========");
+    emp2.displayInfo();
+    System.out.println("3 ==========");
+    emp3.displayInfo();
+    System.out.println("4 ==========");
+    emp1.calculateTax();
+    System.out.println("5 ==========");
+    emp1.promoteEmployee("lead");
+    System.out.println("6 ==========");
+    emp1.calculateTax();
+    System.out.println("7 ==========");
+    emp1.displayInfo();
+    System.out.println("8 ==========");
+    emp3.promoteEmployee("manager");
+    System.out.println("9 ==========");
+    emp3.calculateTax();
+    System.out.println("10 ==========");
+    emp3.displayInfo();
+  }
+}
+
+Expected Output
+1 ==========
+Employee Name: Harry Potter
+Employee Salary: 30000.0 Tk
+Employee Designation: junior
+2 ==========
+Employee Name: Hermione Granger
+Employee Salary: 30000.0 Tk
+Employee Designation: junior
+3 ==========
+Employee Name: Ron Weasley
+Employee Salary: 30000.0 Tk
+Employee Designation: junior
+4 ==========
+No need to pay tax
+5 ==========
+Harry Potter has been promoted to lead
+New Salary: 80000.00 Tk
+6 ==========
+Harry Potter Tax Amount: 24000.00 Tk
+7 ==========
+Employee Name: Harry Potter
+Employee Salary: 80000.0 Tk
+Employee Designation: lead
+8 ==========
+Ron Weasley has been promoted to manager
+New Salary: 105000.00 Tk
+9 ==========
+Ron Weasley Tax Amount: 31500.00 Tk
+10 ==========
+Employee Name: Ron Weasley
+Employee Salary: 105000.0 Tk
+Employee Designation: manager
+
+
+ANSWER:    
+    public void displayInfo() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee Salary: " + salary + " Tk");
+        System.out.println("Employee Designation: " + Position);
+    }
+    public void newEmployee(String name) {
+        this.name = name;
+        this.salary = 30000; 
+        this.Position = "junior"; 
+    }
+    
+    public void calculateTax() {
+        if (salary > 50000) {
+            double tax = salary * 0.30;
+            System.out.println(name + " Tax Amount: " + tax + " Tk");
+        } else if (salary > 30000) {
+            double tax = salary * 0.10; 
+            System.out.println(name + " Tax Amount: " + tax + " Tk");
+        } else {
+            System.out.println("No need to pay tax");
+        }
+    }
+    public void promoteEmployee(String position) {
+        if (position.equals("senior")) {
+            salary += 25000;
+            Position = "senior";
+        } else if (position.equals("lead")) {
+            salary += 50000;
+            Position = "lead";
+        } else if (position.equals("manager")) {
+            salary += 75000;
+            Position = "manager";
+        }
+        System.out.println(name + " has been promoted to " + Position);
+        System.out.println("New Salary: " + salary + " Tk");
+    }
+}
+
